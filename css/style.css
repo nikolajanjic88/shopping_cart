@@ -287,3 +287,8 @@ nav ul li a:hover{
    opacity: .5;
    user-select: none;
 }
+
+.profile {
+   margin-top: 5px;
+   margin-left: 30px;
+}

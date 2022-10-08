@@ -12,18 +12,21 @@ $user = mysqli_fetch_assoc($result);
 
 ?>
 <?php include_once("inc/header.php"); ?>
-    <?php if($user['user_img'] === null):  ?>
-        <img src="avatar/avatar.jpg" alt="" height="300px">
-    <?php else: ?>
-        <img src="<?= $user['user_img'];  ?>" alt="" height="300px">
-    <?php endif; ?>
-    <div>
-        <form action="" method="post" enctype="multipart/form-data">
-            <input type="file" name="image"><br>
-            <button class="btn" name="submit">Upload image</button>
-        </form>
+    <div class="profile">
         <h3><?= $user['name']; ?></h3>
+        <?php if($user['user_img'] === null):  ?>
+            <img src="avatar/avatar.jpg" alt="" height="300px">
+        <?php else: ?>
+            <img src="<?= $user['user_img'];  ?>" alt="" height="300px">
+        <?php endif; ?>
+        <div>
+            <form action="" method="post" enctype="multipart/form-data">
+                <input type="file" name="image"><br>
+                <button class="btn" name="submit">Upload image</button>
+            </form>
+        </div>
     </div>
+    
     <?php
     if(isset($_POST['submit'])) {
         if(($_FILES['image']['name'] != "")) {
