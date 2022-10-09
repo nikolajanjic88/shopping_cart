@@ -4,9 +4,9 @@ require_once("config.php");
 if(isset($_POST['add'])) {
     if(isset($_SESSION['id'])) {
         $user_id = $_SESSION['id'];
-        $product_image = $_POST['product_image'];
-        $product_name = $_POST['product_name'];
-        $product_price = $_POST['product_price'];
+        $product_image = mysqli_real_escape_string($conn, $_POST['product_image']);
+        $product_name = mysqli_real_escape_string($conn, $_POST['product_name']);
+        $product_price = mysqli_real_escape_string($conn, $_POST['product_price']);
         
         $select_cart = "SELECT * FROM cart WHERE name = '{$product_name}' AND user_id = {$user_id}";
         $result = mysqli_query($conn, $select_cart);
