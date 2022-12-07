@@ -21,7 +21,7 @@
                         header("location: index.php");
                        // echo $_SESSION['user'];
                     }
-                    else $msg = "Password inccorect";
+                    else $msg = "Password incorrect";
                 }
                 else $msg = "User not exists";
             } 
